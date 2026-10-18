@@ -1,0 +1,15 @@
+{
+  "name": "Fantasy Chess",
+  "short_name": "Fantasy Chess",
+  "description": "Living stone chessmen with ancient weapons, or doodles on paper.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#050405",
+  "theme_color": "#0b0a09",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

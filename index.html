@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0b0a09" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Living stone chessmen with ancient weapons, or doodles on paper. Chess for any device." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <title>Fantasy Chess</title>
+  <script type="module" crossorigin src="./assets/index-B4x_7z02.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DIwD1yIi.css">
+</head>
+<body class="theme-stone">
+  <div id="stage"></div>
+
+  <div id="loading">
+    <h1 class="title">Fantasy Chess</h1>
+    <p id="loading-stage">Quarrying stone…</p>
+    <div class="bar"><div id="loading-bar"></div></div>
+  </div>
+
+  <div id="status" class="banner hidden"><span class="spinner hidden" id="spinner"></span><span id="status-text"></span></div>
+
+  <aside id="panel" class="hidden">
+    <button id="sheet-handle" class="handle" aria-label="Show or hide the panel"></button>
+    <h2 class="title">Fantasy Chess</h2>
+    <p id="subtitle" class="subtitle"></p>
+    <div class="segmented" role="radiogroup" aria-label="Theme">
+      <button data-theme="stone" class="seg">Stone Hall</button>
+      <button data-theme="doodle" class="seg">Sketchbook</button>
+    </div>
+    <div class="buttons">
+      <button id="btn-new">✦ New Game</button>
+      <button id="btn-undo">↶ Undo</button>
+      <button id="btn-hint">💡 Hint</button>
+      <button id="btn-flip">⟲ Turn Board</button>
+    </div>
+    <div class="captured"><span class="label">Taken by White</span><span id="cap-white">—</span></div>
+    <div class="captured"><span class="label">Taken by Black</span><span id="cap-black">—</span></div>
+    <span class="label">Moves</span>
+    <ol id="moves"></ol>
+    <div class="toggles">
+      <label><input type="checkbox" id="tg-cinematic" checked /> Cinematic camera</label>
+      <label><input type="checkbox" id="tg-fast" /> Swift animations</label>
+      <label><input type="checkbox" id="tg-sound" checked /> Sound</label>
+    </div>
+  </aside>
+
+  <div id="promotion" class="overlay hidden">
+    <div class="card">
+      <h3 class="title">The Pawn Ascends</h3>
+      <p class="subtitle">Choose what it shall become</p>
+      <div class="promo-choices" id="promo-choices"></div>
+      <button class="link" id="promo-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <div id="result" class="overlay hidden">
+    <div class="card">
+      <h3 class="title" id="result-text"></h3>
+      <div class="row"><button id="result-new">✦ New Game</button><button id="result-close">View Board</button></div>
+    </div>
+  </div>
+
+  <dialog id="newgame">
+    <form method="dialog">
+      <h3 class="title">A New Battle</h3>
+      <fieldset>
+        <legend>Opponent</legend>
+        <label><input type="radio" name="mode" value="computer" checked /> Versus the Computer</label>
+        <label><input type="radio" name="mode" value="friend" /> Two Players</label>
+        <label><input type="radio" name="mode" value="spectate" /> Watch the Computer Duel</label>
+      </fieldset>
+      <fieldset id="ng-side">
+        <legend>Command</legend>
+        <select name="side"><option value="0">White (moves first)</option><option value="1">Black</option><option value="r">Let fate decide</option></select>
+      </fieldset>
+      <fieldset id="ng-level">
+        <legend>Difficulty</legend>
+        <select name="level"><option value="1">Apprentice</option><option value="2" selected>Student</option><option value="3">Wizard</option><option value="4">Grand Sorcerer</option></select>
+      </fieldset>
+      <div class="row"><button value="cancel" formnovalidate>Cancel</button><button value="ok" class="primary">Begin</button></div>
+    </form>
+  </dialog>
+
+  <p id="hint-line" class="hint-line hidden">Tap a piece, then a glowing square · Drag to circle the board · Pinch or scroll to zoom</p>
+</body>
+</html>
